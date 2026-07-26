@@ -7,3 +7,10 @@ test('should make a strike in the first attempt', () => {
 
   expect(strikeResult).toBe(expected);
 });
+
+test('should not consider it as a strike if the first throw is not 10', () => {
+  const strikeResult = strike(0, 10, 0);
+  const expected: number = 0;
+
+  expect(strikeResult).toBe(expected);
+});
