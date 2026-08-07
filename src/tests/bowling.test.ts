@@ -22,11 +22,16 @@ test('should not consider it as a strike if the first throw is not 10', () => {
   expect(strikeResult).toBe(expected);
 });
 
-test('given a collection of throws, should compute a strike correctly', () => {
-  const strikeResult = bowlingGameResult([10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-  const expected: number = 11; /** 10 + 0 + 1 = 11 */
+test('given a collection of throws, should compute the result of a bowling game including a strike correctly', () => {
+  const gameResult = bowlingGameResult([10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  /**
+   * strike = 10 + 0 + 1 = 11
+   * the rest of the throws = 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 44
+   * total = 11 + 44 = 55
+   * */
+  const expected: number = 55;
 
-  expect(strikeResult).toBe(expected);
+  expect(gameResult).toBe(expected);
 });
 
 test('given an empty collection of throws, should consider it as a null strike', () => {
