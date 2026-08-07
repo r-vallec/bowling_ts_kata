@@ -12,18 +12,25 @@ function computeSpare(throws: number[]): number {
 
 function computeBowlingGameResult(throws: number[]): number {
   let gameResult: number;
+  let firstThreeThrowsResult: number;
+
+  /** Compute the result of the first 3 throws first */
   if (throws[0] == 10) {
-    gameResult = computeStrike(throws);
-    if (throws.length > 3) {
-      gameResult += throws.slice(3).reduce((accumulator: number, currentNumber: number) => accumulator + currentNumber);
-    }
+    firstThreeThrowsResult = computeStrike(throws);
   } else if (throws[0] + throws[1] == 10) {
-    gameResult = computeSpare(throws);
-    if (throws.length > 3) {
-      gameResult += throws.slice(3).reduce((accumulator: number, currentNumber: number) => accumulator + currentNumber);
-    }
+    firstThreeThrowsResult = computeSpare(throws);
   } else {
-    gameResult = sum(throws);
+    firstThreeThrowsResult = sum(throws);
   }
+
+  /** Compute the game result by considering the rest of throws as well */
+  if (throws.length > 3) {
+    gameResult =
+      firstThreeThrowsResult +
+      throws.slice(3).reduce((accumulator: number, currentNumber: number) => accumulator + currentNumber);
+  } else {
+    gameResult = firstThreeThrowsResult;
+  }
+
   return gameResult;
 }
