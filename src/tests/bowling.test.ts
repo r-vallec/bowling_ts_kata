@@ -1,25 +1,25 @@
 import { test, expect } from '@jest/globals';
 import { bowlingGameResult } from '../core/bowling';
 
-test('should make a strike in the first attempt', () => {
+test('given a collection of throws, should compute a strike correctly', () => {
   const strikeResult = bowlingGameResult([10, 0, 0]);
   const expected: number = 10;
 
   expect(strikeResult).toBe(expected);
 });
 
-test('should consider points after a strike', () => {
-  const strikeResult = bowlingGameResult([10, 0, 5]);
+test('given a collection of throws, should compute the result of a bowling game considering the throws after a strike correctly', () => {
+  const gameResult = bowlingGameResult([10, 0, 5]);
   const expected: number = 15;
 
-  expect(strikeResult).toBe(expected);
+  expect(gameResult).toBe(expected);
 });
 
-test('should not consider it as a strike if the first throw is not 10', () => {
-  const strikeResult = bowlingGameResult([0, 10, 0]);
+test('given a collection of throws, should compute the result of a bowling game when not including a strike correctly', () => {
+  const gameResult = bowlingGameResult([0, 10, 0]);
   const expected: number = 10;
 
-  expect(strikeResult).toBe(expected);
+  expect(gameResult).toBe(expected);
 });
 
 test('given a collection of throws, should compute the result of a bowling game including a strike correctly', () => {
@@ -34,16 +34,16 @@ test('given a collection of throws, should compute the result of a bowling game 
   expect(gameResult).toBe(expected);
 });
 
-test('given an empty collection of throws, should consider it as a null strike', () => {
-  const strikeResult = bowlingGameResult([]);
+test('given an empty collection of throws, should consider it as a null game result', () => {
+  const gameResult = bowlingGameResult([]);
   const expected: number = 0;
 
-  expect(strikeResult).toBe(expected);
+  expect(gameResult).toBe(expected);
 });
 
-test('given collection a throws, should compute a spare correctly', () => {
-  const spareResult: number = bowlingGameResult([5, 5, 1]);
+test('given a collection of throws, should compute the result of a bowling game including a spare correctly', () => {
+  const gameResult: number = bowlingGameResult([5, 5, 1]);
   const expected: number = 11;
 
-  expect(spareResult).toBe(expected);
+  expect(gameResult).toBe(expected);
 });
