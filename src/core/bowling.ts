@@ -11,10 +11,19 @@ function computeSpare(throws: number[]): number {
 }
 
 function computeBowlingGameResult(throws: number[]): number {
+  let gameResult: number;
   if (throws[0] == 10) {
-    return computeStrike(throws);
+    gameResult = computeStrike(throws);
+    if (throws.length > 3) {
+      gameResult += throws.slice(3).reduce((accumulator: number, currentNumber: number) => accumulator + currentNumber);
+    }
   } else if (throws[0] + throws[1] == 10) {
-    return computeSpare(throws);
+    gameResult = computeSpare(throws);
+    if (throws.length > 3) {
+      gameResult += throws.slice(3).reduce((accumulator: number, currentNumber: number) => accumulator + currentNumber);
+    }
+  } else {
+    gameResult = sum(throws);
   }
-  return sum(throws);
+  return gameResult;
 }
