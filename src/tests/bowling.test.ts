@@ -17,7 +17,7 @@ test('should consider points after a strike', () => {
 
 test('should not consider it as a strike if the first throw is not 10', () => {
   const strikeResult = bowlingGameResult([0, 10, 0]);
-  const expected: number = 0;
+  const expected: number = 10;
 
   expect(strikeResult).toBe(expected);
 });
