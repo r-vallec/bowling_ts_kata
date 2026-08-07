@@ -7,10 +7,7 @@ function computeStrike(throws: number[]) {
 }
 
 function computeSpare(throws: number[]): number {
-  if (throws[0] + throws[1] == 10) {
-    return sum([10, throws[2]]);
-  }
-  return 0;
+  return sum([10, throws[2]]);
 }
 
 function computeBowlingGameResult(throws: number[]): number {
