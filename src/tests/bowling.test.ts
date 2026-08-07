@@ -28,3 +28,10 @@ test('given a collection of throws, should compute a strike correctly', () => {
 
   expect(strikeResult).toBe(expected);
 });
+
+test('given an empty collection of throws, should consider it as a null strike', () => {
+  const strikeResult = strike([]);
+  const expected: number = 0;
+
+  expect(strikeResult).toBe(expected);
+});
