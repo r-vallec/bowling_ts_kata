@@ -35,3 +35,10 @@ test('given an empty collection of throws, should consider it as a null strike',
 
   expect(strikeResult).toBe(expected);
 });
+
+test('given collection a throws, should compute a spare correctly', () => {
+  const spareResult: number = spare([5, 5, 1]);
+  const expected: number = 11;
+
+  expect(spareResult).toBe(expected);
+});
