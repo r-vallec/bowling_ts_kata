@@ -3,10 +3,7 @@ export const bowlingGameResult = (throws: number[]): number => computeBowlingGam
 import { sum } from './sum';
 
 function computeStrike(throws: number[]) {
-  if (throws[0] == 10) {
-    return sum([throws[0], throws[1], throws[2]]);
-  }
-  return 0;
+  return sum([throws[0], throws[1], throws[2]]);
 }
 
 function computeSpare(throws: number[]): number {
