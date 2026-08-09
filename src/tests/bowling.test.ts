@@ -4,22 +4,28 @@ import { bowlingGameResult } from '../core/bowling';
 test('given a collection of throws, should compute a strike correctly', () => {
   const strikeResult = bowlingGameResult([10, 0, 0]);
   const expected: number = 10;
+  const expectedNumberOfThrows: number = 3;
 
-  expect(strikeResult).toBe(expected);
+  expect(strikeResult[0]).toBe(expected);
+  expect(strikeResult[1]).toBe(expectedNumberOfThrows);
 });
 
 test('given a collection of throws, should compute the result of a bowling game considering the throws after a strike correctly', () => {
   const gameResult = bowlingGameResult([10, 0, 5]);
   const expected: number = 15;
+  const expectedNumberOfThrows: number = 3;
 
-  expect(gameResult).toBe(expected);
+  expect(gameResult[0]).toBe(expected);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
 test('given a collection of throws, should compute the result of a bowling game when not including a strike correctly', () => {
   const gameResult = bowlingGameResult([0, 10, 0]);
   const expected: number = 10;
+  const expectedNumberOfThrows: number = 3;
 
-  expect(gameResult).toBe(expected);
+  expect(gameResult[0]).toBe(expected);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
 test('given a collection of throws, should compute the result of a bowling game including a strike correctly', () => {
@@ -30,30 +36,38 @@ test('given a collection of throws, should compute the result of a bowling game 
    * total = 11 + 44 = 55
    * */
   const expected: number = 55;
+  const expectedNumberOfThrows: number = 11;
 
-  expect(gameResult).toBe(expected);
+  expect(gameResult[0]).toBe(expected);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
 test('given an empty collection of throws, should consider it as a null game result', () => {
   const gameResult = bowlingGameResult([]);
   const expected: number = 0;
+  const expectedNumberOfThrows: number = 0;
 
-  expect(gameResult).toBe(expected);
+  expect(gameResult[0]).toBe(expected);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
 test('given a collection of throws, should compute the result of a bowling game including a spare correctly', () => {
-  const gameResult: number = bowlingGameResult([5, 5, 1]);
+  const gameResult: [number, number] = bowlingGameResult([5, 5, 1]);
   const expected: number = 11;
+  const expectedNumberOfThrows: number = 3;
 
-  expect(gameResult).toBe(expected);
+  expect(gameResult[0]).toBe(expected);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
 test('given a collection of throws, should compute the result of a bowling game including an open frame correctly', () => {
   /** An open frame occurs when we don't hit all the bolus, which are 10 */
-  const gameResult: number = bowlingGameResult([3, 5]);
+  const gameResult: [number, number] = bowlingGameResult([3, 5]);
   const expectedResult: number = 8;
+  const expectedNumberOfThrows: number = 2;
 
-  expect(gameResult).toBe(expectedResult);
+  expect(gameResult[0]).toBe(expectedResult);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
 test('given a collection of throws, should compute the result and the number of throws during the game including a strike', () => {

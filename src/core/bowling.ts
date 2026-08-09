@@ -1,4 +1,4 @@
-export const bowlingGameResult = (throws: number[]): number => computeBowlingGameResult(throws);
+export const bowlingGameResult = (throws: number[]): [number, number] => computeBowlingGameResult(throws);
 
 import { sum } from './sum';
 
@@ -10,7 +10,7 @@ function computeSpare(throws: number[]): number {
   return sum([10, throws[2]]);
 }
 
-function computeBowlingGameResult(throws: number[]): number {
+function computeBowlingGameResult(throws: number[]): [number, number] {
   let gameResult: number;
   let firstThreeThrowsResult: number;
 
@@ -32,5 +32,5 @@ function computeBowlingGameResult(throws: number[]): number {
     gameResult = firstThreeThrowsResult;
   }
 
-  return gameResult;
+  return [gameResult, throws.length];
 }
