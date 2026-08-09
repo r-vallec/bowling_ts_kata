@@ -47,3 +47,11 @@ test('given a collection of throws, should compute the result of a bowling game 
 
   expect(gameResult).toBe(expected);
 });
+
+test('given a collection of throws, should compute the result of a bowling game including an open frame correctly', () => {
+  /** An open frame occurs when we don't hit all the bolus, which are 10 */
+  const gameResult: number = bowlingGameResult([3, 5]);
+  const expected: number = 8;
+
+  expect(gameResult).toBe(expected);
+});
