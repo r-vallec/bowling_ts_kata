@@ -71,8 +71,13 @@ test('given a collection of throws, should compute the result of a bowling game 
 });
 
 test('given a collection of throws, should compute the result and the number of throws during the game including a strike', () => {
-  const gameResult: number[] = bowlingGameResult([10, 5, 5]);
-  const expectedResult: number = 20;
+  const gameResult: number[] = bowlingGameResult([10, 5, 5, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  /**
+   * strike = 10 + 5 + 5 = 20
+   * the rest of the throws = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45
+   * total = 20 + 45 = 65
+   * */
+  const expectedResult: number = 65;
   const expectedNumberOfThrows: number = 12;
 
   expect(gameResult[0]).toBe(expectedResult);
