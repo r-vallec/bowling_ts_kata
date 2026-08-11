@@ -85,7 +85,7 @@ test('given a collection of throws, should compute the result and the number of 
 });
 
 test('given a collection of throws, should compute the result and the number of throws during the game including a spare', () => {
-  const gameResult: number[] = bowlingGameResult([10, 5]);
+  const gameResult: number[] = bowlingGameResult([10, 5, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
   /**
    * spare = 10 + 5 = 15
    * the rest of the throws = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45
