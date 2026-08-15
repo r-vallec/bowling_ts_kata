@@ -15,7 +15,9 @@ function computeBowlingGameResult(throws: number[]): [number, number] {
   let firstThreeThrowsResult: number;
 
   /** Compute the result of the first 3 throws first */
-  if (throws[0] == 10) {
+  if (throws.length === 0) {
+    firstThreeThrowsResult = 0;
+  } else if (throws[0] == 10) {
     firstThreeThrowsResult = computeStrike(throws);
   } else if (throws[0] + throws[1] == 10) {
     firstThreeThrowsResult = computeSpare(throws);
