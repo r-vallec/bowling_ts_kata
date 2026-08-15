@@ -62,7 +62,7 @@ test('given a collection of throws, should compute the result of a bowling game 
 
 test('given a collection of throws, should compute the result of a bowling game including an open frame correctly', () => {
   /** An open frame occurs when we don't hit all the bolus, which are 10 */
-  const gameResult: [number, number] = bowlingGameResult([3, 5]);
+  const gameResult: [number, number] = bowlingGameResult([1, 2, 3, 4, 5, 6, 7, 8, 9, 9]);
   const expectedResult: number = 8;
   const expectedNumberOfThrows: number = 2;
 
