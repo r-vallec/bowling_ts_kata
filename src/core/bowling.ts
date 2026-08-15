@@ -20,7 +20,7 @@ function computeBowlingGameResult(throws: number[]): [number, number] {
   } else if (throws[0] + throws[1] == 10) {
     firstThreeThrowsResult = computeSpare(throws);
   } else {
-    firstThreeThrowsResult = sum(throws);
+    firstThreeThrowsResult = throws[0] + throws[1] + throws[2];
   }
 
   /** Compute the game result by considering the rest of throws as well */
