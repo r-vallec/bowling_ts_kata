@@ -61,14 +61,13 @@ test('given a collection of throws, should compute the result of a bowling game 
 });
 
 test('given a collection of throws, should compute the result of a bowling game including an open frame correctly', () => {
-  /** An open frame occurs when we don't hit all the bolus, which are 10 */
-  const gameResult: [number, number] = bowlingGameResult([1, 2, 3, 4, 5, 6, 7, 8, 9, 9]);
+  const gameResult: [number, number] = bowlingGameResult([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
   /**
    * open frame = We didn't hit all the bolus in any turn
-   * total of the throws = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 9 = 54
+   * total = 20 * 1 = 20
    * */
-  const expectedResult: number = 54;
-  const expectedNumberOfThrows: number = 10;
+  const expectedResult: number = 20;
+  const expectedNumberOfThrows: number = 20;
 
   expect(gameResult[0]).toBe(expectedResult);
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
