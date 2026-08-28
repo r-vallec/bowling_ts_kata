@@ -101,3 +101,16 @@ test('given a collection of throws, should compute the result and the number of 
   expect(gameResult[0]).toBe(expectedResult);
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
+
+test('given a collection of throws, should compute the result and the number of throws when all failed', () => {
+  const gameResult: number[] = bowlingGameResult([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  /**
+   * 20 failures
+   * total = 0
+   * */
+  const expectedResult: number = 0;
+  const expectedNumberOfThrows: number = 20;
+
+  expect(gameResult[0]).toBe(expectedResult);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
+});
