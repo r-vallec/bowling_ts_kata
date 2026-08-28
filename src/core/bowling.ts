@@ -29,7 +29,7 @@ function computeBowlingGameResult(throws: number[]): [number, number] {
   if (throws.length > 3) {
     gameResult =
       firstThreeThrowsResult +
-      throws.slice(3).reduce((accumulator: number, currentNumber: number) => accumulator + currentNumber);
+      throws.slice(1).reduce((accumulator: number, currentNumber: number) => accumulator + currentNumber);
   } else {
     gameResult = firstThreeThrowsResult;
   }
