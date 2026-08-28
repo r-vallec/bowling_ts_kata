@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals';
 import { bowlingGameResult } from '../core/bowling';
 
-test('given a collection of throws, should compute a strike correctly', () => {
+test('given a collection of throws, should compute an initial strike correctly', () => {
   /**
    * strike = 10 + 2 + 3 = 15
    * total = 15 + 2 + 3 = 20
