@@ -14,10 +14,10 @@ test('given a collection of throws, should compute an initial strike correctly',
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
-test('given a collection of throws, should compute the result of a bowling game when not including a strike correctly', () => {
-  const gameResult: [number, number] = bowlingGameResult([0, 10, 0]);
-  const expectedResult: number = 10;
-  const expectedNumberOfThrows: number = 3;
+test('given a collection of throws, should compute the result of a bowling game when including a strike later', () => {
+  const gameResult: [number, number] = bowlingGameResult([0, 0, 0, 10, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const expectedResult: number = 20;
+  const expectedNumberOfThrows: number = 20;
 
   expect(gameResult[0]).toBe(expectedResult);
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
