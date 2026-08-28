@@ -2,9 +2,13 @@ import { test, expect } from '@jest/globals';
 import { bowlingGameResult } from '../core/bowling';
 
 test('given a collection of throws, should compute a strike correctly', () => {
-  const gameResult: [number, number] = bowlingGameResult([10, 0, 0]);
-  const expectedResult: number = 10;
-  const expectedNumberOfThrows: number = 3;
+  /**
+   * strike = 10 + 2 + 3 = 15
+   * total = 15 + 2 + 3 = 20
+   * */
+  const gameResult: [number, number] = bowlingGameResult([10, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const expectedResult: number = 20;
+  const expectedNumberOfThrows: number = 19;
 
   expect(gameResult[0]).toBe(expectedResult);
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
