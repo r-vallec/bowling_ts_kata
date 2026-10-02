@@ -87,8 +87,8 @@ test('given a collection of throws, should compute the result and the number of 
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
-test('given a collection of throws, should compute the result and the number of throws during the game including a spare', () => {
-  const gameResult: number[] = bowlingGameResult([0, 0, 0, 0, 0, 0, 0, 5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+test('given a collection of throws, should compute the result when a spare occurs during the game', () => {
+  const gameResult: number[] = bowlingGameResult([0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   /**
    * spare = 5 + 5 = 10
    * the rest of the throws = 1 + 17 failures (0)
