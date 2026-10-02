@@ -47,9 +47,14 @@ test('given an empty collection of throws, should consider it as a null game res
 });
 
 test('given a collection of throws, should compute the result of a bowling game including a spare correctly', () => {
-  const gameResult: [number, number] = bowlingGameResult([5, 5, 1]);
+  const gameResult: [number, number] = bowlingGameResult([5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  /**
+   * spare = 5 + 5 = 10
+   * the rest of the throws = 1 + 17 failures (0)
+   * total = 10 + 1 = 11
+   * */
   const expectedResult: number = 11;
-  const expectedNumberOfThrows: number = 3;
+  const expectedNumberOfThrows: number = 20;
 
   expect(gameResult[0]).toBe(expectedResult);
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
@@ -83,13 +88,13 @@ test('given a collection of throws, should compute the result and the number of 
 });
 
 test('given a collection of throws, should compute the result and the number of throws during the game including a spare', () => {
-  const gameResult: number[] = bowlingGameResult([10, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const gameResult: number[] = bowlingGameResult([0, 0, 0, 0, 0, 0, 0, 5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   /**
-   * spare = 10 + 5 = 15
-   * the rest of the throws = 5 + 17 failures (0)
-   * total = 15 + 5 = 20
+   * spare = 5 + 5 = 10
+   * the rest of the throws = 1 + 17 failures (0)
+   * total = 10 + 1 = 11
    * */
-  const expectedResult: number = 20;
+  const expectedResult: number = 11;
   const expectedNumberOfThrows: number = 20;
 
   expect(gameResult[0]).toBe(expectedResult);
