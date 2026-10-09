@@ -30,16 +30,6 @@ test('given a collection of throws, should compute the total score including a s
 
 // TODO: Test strike in the last square
 
-// TODO: Relocate test to be after the one about null scores
-test('given an empty collection of throws, should consider it as a null game result', () => {
-  const gameResult: [number, number] = bowlingGameResult([]);
-  const expectedResult: number = 0;
-  const expectedNumberOfThrows: number = 0;
-
-  expect(gameResult[0]).toBe(expectedResult);
-  expect(gameResult[1]).toBe(expectedNumberOfThrows);
-});
-
 test('given a collection of throws, should compute the total score including a spare in the first square correctly', () => {
   const gameResult: [number, number] = bowlingGameResult([5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   /**
@@ -89,6 +79,15 @@ test('given a collection of throws, should compute the total score when all thro
    * */
   const expectedResult: number = 0;
   const expectedNumberOfThrows: number = 20;
+
+  expect(gameResult[0]).toBe(expectedResult);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
+});
+
+test('given an empty collection of throws, should consider it as a null game result', () => {
+  const gameResult: [number, number] = bowlingGameResult([]);
+  const expectedResult: number = 0;
+  const expectedNumberOfThrows: number = 0;
 
   expect(gameResult[0]).toBe(expectedResult);
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
