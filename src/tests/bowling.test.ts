@@ -69,20 +69,6 @@ test('given a collection of throws, should compute the total score including a s
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
-test('given a collection of throws, should compute the total score including an open frame correctly', () => {
-  const gameResult: [number, number] = bowlingGameResult([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
-  /**
-   * open frame = We didn't hit all the bolus in any turn
-   * total = 20 * 1 = 20
-   * */
-  const expectedResult: number = 20;
-  const expectedNumberOfThrows: number = 20;
-
-  expect(gameResult[0]).toBe(expectedResult);
-  expect(gameResult[1]).toBe(expectedNumberOfThrows);
-});
-
-// TODO: Relocate test to be after the previous about spares
 test('given a collection of throws, should compute the total score including a spare in the second square correctly', () => {
   const gameResult: number[] = bowlingGameResult([0, 0, 5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   /**
@@ -91,6 +77,19 @@ test('given a collection of throws, should compute the total score including a s
    * total = 11 + 6 = 17
    * */
   const expectedResult: number = 17;
+  const expectedNumberOfThrows: number = 20;
+
+  expect(gameResult[0]).toBe(expectedResult);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
+});
+
+test('given a collection of throws, should compute the total score including an open frame correctly', () => {
+  const gameResult: [number, number] = bowlingGameResult([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  /**
+   * open frame = We didn't hit all the bolus in any turn
+   * total = 20 * 1 = 20
+   * */
+  const expectedResult: number = 20;
   const expectedNumberOfThrows: number = 20;
 
   expect(gameResult[0]).toBe(expectedResult);
