@@ -28,7 +28,21 @@ test('given a collection of throws, should compute the total score including a s
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
-// TODO: Test strike in the last square
+test('given a collection of throws, should compute the total score including a strike in the last square correctly', () => {
+  const gameResult: [number, number] = bowlingGameResult([
+    0, 0, 0, 0, 0, 0, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 2,
+  ]);
+  /**
+   * strike = 10 + 0 + 2 = 12
+   * rest = 2 + 3 = 5
+   * total = 12 + 5 = 17
+   * */
+  const expectedResult: number = 17;
+  const expectedNumberOfThrows: number = 22;
+
+  expect(gameResult[0]).toBe(expectedResult);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
+});
 
 test('given a collection of throws, should compute the total score including a spare in the first square correctly', () => {
   const gameResult: [number, number] = bowlingGameResult([5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
