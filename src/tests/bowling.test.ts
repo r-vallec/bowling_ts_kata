@@ -72,6 +72,20 @@ test('given a collection of throws, should compute the total score including a s
   expect(gameResult[1]).toBe(expectedNumberOfThrows);
 });
 
+test('given a collection of throws, should compute the total score including a spare in the last square correctly', () => {
+  const gameResult: number[] = bowlingGameResult([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 1]);
+  /**
+   * spare = 5 + 5 + 1 = 11
+   * the rest of the throws = 5 + 1 + (18 failures * 0) = 6
+   * total = 11 + 6 = 17
+   * */
+  const expectedResult: number = 17;
+  const expectedNumberOfThrows: number = 21;
+
+  expect(gameResult[0]).toBe(expectedResult);
+  expect(gameResult[1]).toBe(expectedNumberOfThrows);
+});
+
 test('given a collection of throws, should compute the total score including an open frame correctly', () => {
   const gameResult: [number, number] = bowlingGameResult([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
   /**
