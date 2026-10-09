@@ -30,21 +30,6 @@ test('given a collection of throws, should compute the total score including a s
 
 // TODO: Test strike in the last square
 
-// TODO: To delete redundant test
-test('given a collection of throws, should compute the result of a bowling game including a strike correctly', () => {
-  const gameResult: [number, number] = bowlingGameResult([10, 0, 1, 2, 3, 4, 5, 4, 7, 2, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  /**
-   * strike = 10 + 0 + 1 = 11
-   * the rest of the throws = 1 + 2 + 3 + 4 + 5 + 4 + 7 + 2 + 9 = 37
-   * total = 11 + 37 = 50
-   * */
-  const expectedResult: number = 50;
-  const expectedNumberOfThrows: number = 20;
-
-  expect(gameResult[0]).toBe(expectedResult);
-  expect(gameResult[1]).toBe(expectedNumberOfThrows);
-});
-
 // TODO: Relocate test to be after the one about null scores
 test('given an empty collection of throws, should consider it as a null game result', () => {
   const gameResult: [number, number] = bowlingGameResult([]);
