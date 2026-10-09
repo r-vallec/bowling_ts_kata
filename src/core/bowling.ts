@@ -29,7 +29,11 @@ function computeBowlingGameResult(throws: number[]): [number, number] {
         gameResult += throws[i];
       }
     } else {
-      gameResult += throws[i];
+      // Do not count extra throws unless a strike happened.
+      // If a strike occurred, we already counted it when we computed it.
+      if (i <= 20) {
+        gameResult += throws[i];
+      }
     }
   }
 
